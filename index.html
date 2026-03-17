@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio Ale</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <span class="navbar-brand fw-bold">Ale | Dev</span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero d-flex align-items-center text-center text-white">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Hola, soy Ale</h1>
+        <p class="lead">Desarrollo de Software | Fitness | Disciplina</p>
+        <a href="#about" class="btn btn-outline-light mt-3">Explorar</a>
+    </div>
+</section>
+
+<!-- SOBRE MI -->
+<section id="about" class="container py-5 fade-in">
+    <h2 class="text-center mb-5">Sobre mí</h2>
+
+    <div class="row align-items-center">
+
+        <div class="col-md-6 text-center mb-4">
+            <div class="photo-grid">
+                <img src="img/foto1.jpg" class="gallery-img">
+                <img src="img/foto2.jpg" class="gallery-img">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <p class="about-text">
+                Estudiante de Análisis y Desarrollo de Software enfocado en soluciones prácticas.
+                Combino disciplina del deporte con la lógica del desarrollo para mantener constancia
+                en cada proyecto.
+            </p>
+
+            <a href="https://www.instagram.com/unoenlaciudad" target="_blank" class="btn btn-dark mt-3">
+                <i class="fab fa-instagram"></i> Contáctame
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="container py-5 fade-in">
+    <h2 class="text-center mb-5">Proyectos</h2>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card project-card">
+                <div class="card-body text-center">
+                    <h5>Sistema CRUD</h5>
+                    <p>Gestión con base de datos</p>
+                    <button class="btn btn-dark">Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card project-card">
+                <div class="card-body text-center">
+                    <h5>App Fitness</h5>
+                    <p>Rutinas y progreso</p>
+                    <button class="btn btn-dark">Ver</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CARRUSEL -->
+<section class="py-5 bg-light fade-in">
+    <div class="container">
+        <h2 class="text-center mb-5">UNOENLACIUDAD</h2>
+
+        <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img src="img/foto22.jpg" class="d-block w-100 carousel-image">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/foto1.jpg" class="d-block w-100 carousel-image">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/foto2.jpg" class="d-block w-100 carousel-image">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/foto7.jpg" class="d-block w-100 carousel-image">
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" data-bs-target="#miCarrusel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" data-bs-target="#miCarrusel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="container py-5 fade-in">
+    <h2 class="text-center mb-4">¿Hablamos de tu próximo proyecto?</h2>
+
+    <div class="row align-items-center">
+
+        <div class="col-md-6 mb-4">
+            <p>Disponible para proyectos, colaboraciones o desarrollo web.</p>
+        </div>
+
+        <div class="col-md-6">
+            <form id="formularioContacto" method="POST">
+
+                <input type="text" id="nombre" class="form-control mb-3" placeholder="Nombre" required>
+                <input type="email" id="correo" class="form-control mb-3" placeholder="Tu correo" required>
+                <textarea id="descripcion" class="form-control mb-3" rows="4" placeholder="Descripción" required></textarea>
+
+                <button type="submit" class="btn btn-dark w-100">Enviar mensaje</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center p-4">
+    <p>© 2026 Ale Dev</p>
+
+    <a href="https://github.com/AleADSO" class="btn btn-light btn-sm mx-2">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <a href="https://www.instagram.com/unoenlaciudad" class="btn btn-light btn-sm mx-2">
+        <i class="fab fa-instagram"></i>
+    </a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
