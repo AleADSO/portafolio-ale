@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ale | Portafolio Dev</title>
+<title>Portafolio Ale</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -15,74 +15,77 @@
 /* HERO */
 
 .hero{
-height:100vh;
-background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-url("foto1.jpg");
+min-height:90vh;
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("foto1.jpg");
 background-size:cover;
 background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 }
 
-/* GALERIA */
+/* SOBRE MI FOTOS */
 
-.gallery{
+.photo-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
+grid-template-columns:1fr 1fr;
+gap:10px;
 }
 
-.gallery img{
+.photo-grid img{
 width:100%;
 border-radius:10px;
-transition:.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
+object-fit:cover;
 }
 
 /* PROYECTOS */
 
 .project-card{
-transition:.3s;
 border:none;
 box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
 }
 
 .project-card:hover{
-transform:translateY(-8px);
+transform:translateY(-5px);
 }
 
-/* CAROUSEL */
+/* CARRUSEL */
 
 .carousel-image{
-height:500px;
+max-height:500px;
 object-fit:cover;
 border-radius:10px;
 }
 
-/* FOOTER */
+/* CONTACTO */
 
-footer a{
-text-decoration:none;
+#contacto form{
+background:#f8f9fa;
+padding:25px;
+border-radius:10px;
+}
+
+/* ESPACIO NAVBAR */
+
+body{
+padding-top:70px;
 }
 
 </style>
 
 </head>
 
-
 <body>
+
 
 <!-- NAV -->
 
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <div class="container">
 
-<span class="navbar-brand fw-bold">Ale Dev</span>
-
-<a href="#contacto" class="btn btn-outline-light btn-sm">
-Contacto
-</a>
+<span class="navbar-brand fw-bold">Ale | Dev</span>
 
 </div>
 </nav>
@@ -90,18 +93,18 @@ Contacto
 
 <!-- HERO -->
 
-<section class="hero d-flex align-items-center text-center text-white">
+<section class="hero text-white">
 
 <div class="container">
 
-<h1 class="display-3 fw-bold">Hola, soy Ale</h1>
+<h1 class="display-4 fw-bold">Hola, soy Ale</h1>
 
 <p class="lead">
-Desarrollo de Software • Disciplina • Fitness
+Desarrollo de Software | Fitness | Disciplina
 </p>
 
-<a href="#proyectos" class="btn btn-light mt-3">
-Ver proyectos
+<a href="#about" class="btn btn-outline-light mt-3">
+Explorar
 </a>
 
 </div>
@@ -111,40 +114,36 @@ Ver proyectos
 
 <!-- SOBRE MI -->
 
-<section class="container py-5">
+<section id="about" class="container py-5">
 
 <h2 class="text-center mb-5">Sobre mí</h2>
 
 <div class="row align-items-center">
 
-<div class="col-md-6">
 
-<p class="lead">
-Estudiante de Análisis y Desarrollo de Software.
-Me enfoco en crear soluciones simples y funcionales.
-</p>
+<div class="col-md-6 mb-4">
 
-<p>
-Combino la disciplina del deporte con la lógica del desarrollo
-para mejorar constantemente mis habilidades.
-</p>
-
-<a href="https://github.com/AleADSO" class="btn btn-dark">
-<i class="fab fa-github"></i> Ver GitHub
-</a>
-
-</div>
-
-<div class="col-md-6">
-
-<div class="gallery">
+<div class="photo-grid">
 
 <img src="foto1.jpg">
 <img src="foto2.jpg">
-<img src="foto3.jpg">
-<img src="foto4.jpg">
 
 </div>
+
+</div>
+
+
+<div class="col-md-6">
+
+<p>
+Estudiante de Análisis y Desarrollo de Software enfocado en soluciones prácticas.
+Combino disciplina del deporte con la lógica del desarrollo para mantener constancia
+en cada proyecto.
+</p>
+
+<a href="https://www.instagram.com/unoenlaciudad" target="_blank" class="btn btn-dark mt-3">
+<i class="fab fa-instagram"></i> Contáctame
+</a>
 
 </div>
 
@@ -155,11 +154,11 @@ para mejorar constantemente mis habilidades.
 
 <!-- PROYECTOS -->
 
-<section id="proyectos" class="container py-5">
+<section class="container py-5">
 
 <h2 class="text-center mb-5">Proyectos</h2>
 
-<div class="row">
+<div class="row justify-content-center">
 
 
 <div class="col-md-4 mb-4">
@@ -167,16 +166,12 @@ para mejorar constantemente mis habilidades.
 <div class="card project-card">
 
 <div class="card-body text-center">
-
-<i class="fa-solid fa-database fa-2x mb-3"></i>
 
 <h5>Sistema CRUD</h5>
 
-<p>Gestión con base de datos.</p>
+<p>Gestión con base de datos</p>
 
-<a href="https://github.com/AleADSO" class="btn btn-dark">
-Ver código
-</a>
+<button class="btn btn-dark">Ver</button>
 
 </div>
 
@@ -190,39 +185,12 @@ Ver código
 <div class="card project-card">
 
 <div class="card-body text-center">
-
-<i class="fa-solid fa-dumbbell fa-2x mb-3"></i>
 
 <h5>App Fitness</h5>
 
-<p>Control de rutinas y progreso.</p>
+<p>Rutinas y progreso</p>
 
-<a href="https://github.com/AleADSO" class="btn btn-dark">
-Ver código
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="col-md-4 mb-4">
-
-<div class="card project-card">
-
-<div class="card-body text-center">
-
-<i class="fa-solid fa-globe fa-2x mb-3"></i>
-
-<h5>Portafolio Web</h5>
-
-<p>Desarrollo personal.</p>
-
-<a href="https://github.com/AleADSO" class="btn btn-dark">
-Ver código
-</a>
+<button class="btn btn-dark">Ver</button>
 
 </div>
 
@@ -244,35 +212,43 @@ Ver código
 
 <h2 class="text-center mb-5">UNOENLACIUDAD</h2>
 
-<div id="carousel" class="carousel slide" data-bs-ride="carousel">
+<div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
 
 <div class="carousel-inner">
+
 
 <div class="carousel-item active">
 <img src="foto22.jpg" class="d-block w-100 carousel-image">
 </div>
 
-<div class="carousel-item">
-<img src="foto5.jpg" class="d-block w-100 carousel-image">
-</div>
 
 <div class="carousel-item">
-<img src="foto6.jpg" class="d-block w-100 carousel-image">
+<img src="foto1.jpg" class="d-block w-100 carousel-image">
 </div>
+
+
+<div class="carousel-item">
+<img src="foto2.jpg" class="d-block w-100 carousel-image">
+</div>
+
 
 <div class="carousel-item">
 <img src="foto7.jpg" class="d-block w-100 carousel-image">
 </div>
 
+
 </div>
 
-<button class="carousel-control-prev" data-bs-target="#carousel" data-bs-slide="prev">
+
+<button class="carousel-control-prev" data-bs-target="#miCarrusel" data-bs-slide="prev">
 <span class="carousel-control-prev-icon"></span>
 </button>
 
-<button class="carousel-control-next" data-bs-target="#carousel" data-bs-slide="next">
+
+<button class="carousel-control-next" data-bs-target="#miCarrusel" data-bs-slide="next">
 <span class="carousel-control-next-icon"></span>
 </button>
+
 
 </div>
 
@@ -285,7 +261,7 @@ Ver código
 
 <section id="contacto" class="container py-5">
 
-<h2 class="text-center mb-4">Contacto</h2>
+<h2 class="text-center mb-4">¿Hablamos de tu próximo proyecto?</h2>
 
 <div class="row justify-content-center">
 
@@ -293,14 +269,14 @@ Ver código
 
 <form>
 
-<input class="form-control mb-3" placeholder="Nombre">
+<input type="text" class="form-control mb-3" placeholder="Nombre">
 
-<input class="form-control mb-3" placeholder="Correo">
+<input type="email" class="form-control mb-3" placeholder="Correo">
 
-<textarea class="form-control mb-3" rows="4" placeholder="Mensaje"></textarea>
+<textarea class="form-control mb-3" rows="4" placeholder="Descripción"></textarea>
 
 <button class="btn btn-dark w-100">
-Enviar
+Enviar mensaje
 </button>
 
 </form>
