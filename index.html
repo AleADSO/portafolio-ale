@@ -374,22 +374,12 @@ en cada proyecto.
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="container py-5">
-<h2 class="text-center mb-4">¿Hablamos de tu próximo proyecto?</h2>
-
-<div class="row justify-content-center">
-
-<div class="col-md-6">
-<form>
-<input type="text" class="form-control mb-3" placeholder="Nombre">
-<input type="email" class="form-control mb-3" placeholder="Correo">
-<textarea class="form-control mb-3" rows="4" placeholder="Descripción"></textarea>
+<form onsubmit="enviarWhatsApp(event)">
+<input type="text" id="nombre" class="form-control mb-3" placeholder="Nombre" required>
+<input type="email" id="correo" class="form-control mb-3" placeholder="Correo" required>
+<textarea id="mensaje" class="form-control mb-3" rows="4" placeholder="Descripción" required></textarea>
 <button class="btn btn-dark w-100">Enviar mensaje</button>
 </form>
-</div>
-
-</div>
-</section>
 
 <!-- FOOTER -->
 <footer class="bg-dark text-white text-center p-4">
@@ -405,6 +395,33 @@ en cada proyecto.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+function enviarWhatsApp(e){
+e.preventDefault();
+
+let nombre = document.getElementById("nombre").value.trim();
+let correo = document.getElementById("correo").value.trim();
+let mensaje = document.getElementById("mensaje").value.trim();
+
+// Validación básica
+if(!nombre || !correo || !mensaje){
+alert("Completa todos los campos");
+return;
+}
+
+// Mensaje formateado
+let texto = `Hola, quiero contactarte:%0A%0A👤 Nombre: ${nombre}%0A📧 Correo: ${correo}%0A💬 Mensaje: ${mensaje}`;
+
+// ⚠️ CAMBIA ESTE NÚMERO
+let numero = "+573236468166";
+
+let url = `https://wa.me/${numero}?text=${texto}`;
+
+window.open(url, "_blank");
+  document.querySelector("form").reset();
+}
+</script>
 
 </body>
 </html>
