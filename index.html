@@ -12,11 +12,28 @@
 
 <style>
 
+:root{
+--surface:#ffffff;
+--surface-muted:#f4f1eb;
+--ink:#181818;
+--ink-soft:#5d5d5d;
+--shadow-soft:0 20px 45px rgba(0,0,0,.12);
+--shadow-hover:0 28px 60px rgba(0,0,0,.18);
+--radius-lg:24px;
+--radius-md:18px;
+}
+
+body{
+padding-top:70px;
+background:linear-gradient(180deg,#f8f6f2 0%,#ffffff 42%,#f7f7f7 100%);
+color:var(--ink);
+}
+
 /* HERO */
 .hero{
 min-height:90vh;
 background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-url("/portafolio-ale/img/foto1.jpg");
+url("img/foto1.jpg");
 background-size:cover;
 background-position:center;
 display:flex;
@@ -28,14 +45,55 @@ text-align:center;
 /* SOBRE MI FOTOS */
 .photo-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+grid-template-columns:repeat(2, minmax(0, 1fr));
+gap:18px;
+align-items:stretch;
+}
+
+.photo-frame{
+position:relative;
+overflow:hidden;
+border-radius:var(--radius-lg);
+background:var(--surface);
+box-shadow:var(--shadow-soft);
+min-height:260px;
+isolation:isolate;
+}
+
+.photo-frame::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.28) 100%);
+opacity:.9;
+pointer-events:none;
 }
 
 .photo-grid img{
 width:100%;
+height:100%;
 border-radius:10px;
 object-fit:cover;
+display:block;
+transition:transform .7s ease, filter .5s ease;
+}
+
+.photo-frame:hover img{
+transform:scale(1.06);
+filter:saturate(1.05);
+}
+
+.photo-caption{
+position:absolute;
+left:18px;
+right:18px;
+bottom:18px;
+z-index:1;
+color:#fff;
+font-size:.95rem;
+font-weight:600;
+letter-spacing:.04em;
+text-transform:uppercase;
 }
 
 /* PROYECTOS */
@@ -50,10 +108,72 @@ transform:translateY(-5px);
 }
 
 /* CARRUSEL */
+.carousel-shell{
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(8px);
+border-radius:32px;
+padding:22px;
+box-shadow:var(--shadow-soft);
+}
+
+.carousel-item{
+overflow:hidden;
+border-radius:26px;
+}
+
 .carousel-image{
-max-height:500px;
+height:min(72vh, 640px);
 object-fit:cover;
-border-radius:10px;
+border-radius:26px;
+filter:contrast(1.02) saturate(1.02);
+}
+
+.carousel-caption-custom{
+position:absolute;
+left:24px;
+right:24px;
+bottom:24px;
+padding:18px 20px;
+border-radius:20px;
+background:linear-gradient(135deg, rgba(0,0,0,.7), rgba(0,0,0,.35));
+color:#fff;
+max-width:420px;
+}
+
+.carousel-caption-custom h5{
+margin-bottom:6px;
+font-size:1.05rem;
+letter-spacing:.04em;
+text-transform:uppercase;
+}
+
+.carousel-caption-custom p{
+margin:0;
+color:rgba(255,255,255,.86);
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+width:auto;
+opacity:1;
+}
+
+.carousel-control-prev{
+left:18px;
+}
+
+.carousel-control-next{
+right:18px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+width:3.1rem;
+height:3.1rem;
+border-radius:50%;
+background-color:rgba(24,24,24,.72);
+background-size:42%;
+box-shadow:0 12px 24px rgba(0,0,0,.18);
 }
 
 /* CONTACTO */
@@ -63,9 +183,61 @@ padding:25px;
 border-radius:10px;
 }
 
-/* NAV ESPACIO */
-body{
-padding-top:70px;
+@media (max-width: 991.98px){
+.carousel-image{
+height:520px;
+}
+}
+
+@media (max-width: 767.98px){
+.photo-grid{
+grid-template-columns:1fr;
+}
+
+.photo-frame{
+min-height:320px;
+}
+
+.carousel-shell{
+padding:14px;
+border-radius:24px;
+}
+
+.carousel-image{
+height:380px;
+}
+
+.carousel-caption-custom{
+left:14px;
+right:14px;
+bottom:14px;
+padding:14px 16px;
+max-width:none;
+}
+
+.carousel-caption-custom p{
+font-size:.92rem;
+}
+}
+
+@media (max-width: 575.98px){
+.hero{
+min-height:78vh;
+}
+
+.photo-frame{
+min-height:260px;
+}
+
+.carousel-image{
+height:300px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+width:2.6rem;
+height:2.6rem;
+}
 }
 
 </style>
@@ -98,8 +270,14 @@ padding-top:70px;
 
 <div class="col-md-6 mb-4">
 <div class="photo-grid">
-<img src="/portafolio-ale/img/foto1.jpg" alt="Foto 1">
-<img src="/portafolio-ale/img/foto2.jpg" alt="Foto 2">
+<figure class="photo-frame mb-0">
+<img src="img/foto1.jpg" alt="Retrato de Ale">
+<figcaption class="photo-caption">Disciplina</figcaption>
+</figure>
+<figure class="photo-frame mb-0">
+<img src="img/foto2.jpg" alt="Ale en sesión fotográfica urbana">
+<figcaption class="photo-caption">Estilo urbano</figcaption>
+</figure>
 </div>
 </div>
 
@@ -152,19 +330,32 @@ en cada proyecto.
 <div class="container">
 <h2 class="text-center mb-5">UNOENLACIUDAD</h2>
 
+<div class="carousel-shell">
 <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
 <div class="carousel-inner">
 
 <div class="carousel-item active">
-<img src="/portafolio-ale/img/foto1.jpg" class="d-block w-100 carousel-image" alt="">
+<img src="img/foto1.jpg" class="d-block w-100 carousel-image" alt="Ale en retrato editorial">
+<div class="carousel-caption-custom">
+<h5>Presencia visual</h5>
+<p>Imágenes con recorte limpio y una composición más editorial.</p>
+</div>
 </div>
 
 <div class="carousel-item">
-<img src="/portafolio-ale/img/foto2.jpg" class="d-block w-100 carousel-image" alt="">
+<img src="img/foto2.jpg" class="d-block w-100 carousel-image" alt="Ale en entorno urbano">
+<div class="carousel-caption-custom">
+<h5>Marca personal</h5>
+<p>Una galería que se adapta mejor a móvil y mantiene impacto en escritorio.</p>
+</div>
 </div>
 
 <div class="carousel-item">
-<img src="/portafolio-ale/img/foto7.jpg" class="d-block w-100 carousel-image" alt="">
+<img src="img/foto7.jpg" class="d-block w-100 carousel-image" alt="Fotografía lifestyle de Ale">
+<div class="carousel-caption-custom">
+<h5>Acabado profesional</h5>
+<p>Más profundidad visual, mejor lectura y controles elegantes.</p>
+</div>
 </div>
 
 </div>
@@ -177,6 +368,7 @@ en cada proyecto.
 <span class="carousel-control-next-icon"></span>
 </button>
 
+</div>
 </div>
 </div>
 </section>
